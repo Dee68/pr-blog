@@ -1,1 +1,1 @@
-web: gunicorn dread-lock.wsgi
+web: gunicorn prac_blog.wsgi
