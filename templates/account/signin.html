@@ -1,0 +1,35 @@
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% extends 'account_base.html' %}
+{% load static %}
+{% block title%}Pr Blog{% endblock %}
+	<!-- main -->
+	{% block header %}
+         Login to account  
+    {% endblock header %}
+		<div class="main-agileinfo">
+			{% block content %}
+			<div class="agileits-top">
+				<form action="{% url 'account:signup' %}" method="post">
+					{% csrf_token %}
+				{% include "partials/_messages.html" %}
+                <input class="text" type="text" name="Username" id="Username" placeholder="Username" required="">
+                <br>
+                <!-- <input class="text email" type="email" name="email" id="email" placeholder="Email" required=""> -->
+                <input class="text" type="password" name="password" id="password" placeholder="Password" required="">
+					<input type="submit" value="LOGIN" id="login">
+				</form>
+				<p>Already have an Account? <a href="{% url 'account:signup' %}"> Signup Now!</a></p>
+			</div>
+			{% endblock %}
+		</div>
+		<!-- copyright -->
+		
+	</div>
+	<!-- //main -->
+</body>
+</html>

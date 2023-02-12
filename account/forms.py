@@ -5,12 +5,12 @@ from . models import Profile
 
 
 class CustomCreationForm(UserCreationForm):
-    username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text','placeholder':'Username','name':'username','id':'usernameField','value':""}))
-    # first_name = forms.CharField(max_length=100, label="", widget=forms.TextInput(attrs={'class':'text','placeholder':'Firstname','name':'firstname','id':'firstnameField','value':""}))
-    # last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text','placeholder':'Lastname','name':'lastname','id':'lastnameField','value':""}))
-    email = forms.CharField(max_length=100, widget=forms.EmailInput(attrs={'class':'text email','placeholder':'Email','name':'email','id':'emailField','value':""}))
-    password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'text','placeholder':'Password','name':'password1','id':'password1Field'}))
-    password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'text w3lpass','name':'password2','id':'password2Field','placeholder':'Confirm Password'}))
+    # username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text','placeholder':'Username','name':'username','id':'usernameField','value':""}))
+    # # first_name = forms.CharField(max_length=100, label="", widget=forms.TextInput(attrs={'class':'text','placeholder':'Firstname','name':'firstname','id':'firstnameField','value':""}))
+    # # last_name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'class':'text','placeholder':'Lastname','name':'lastname','id':'lastnameField','value':""}))
+    # email = forms.CharField(max_length=100, widget=forms.EmailInput(attrs={'class':'text email','placeholder':'Email','name':'email','id':'emailField','value':""}))
+    # password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'text','placeholder':'Password','name':'password1','id':'password1Field'}))
+    # password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(attrs={'class':'text w3lpass','name':'password2','id':'password2Field','placeholder':'Confirm Password'}))
 
     class Meta(UserCreationForm.Meta):
         model = User
