@@ -86,7 +86,7 @@ def signup(request):
             # activate_link = 'http://'+domain+link
             email_body = 'Hello '+user.username+', please use the link below to verify your account\n'#+activate_link
             email = EmailMessage(email_subject, email_body, 'noreply@mrdee.com', [user_email] )
-            # email.send(fail_silently=True)
+            email.send(fail_silently=False)
             messages.success(request, mark_safe("Account created successfully.<br>Check your mail to activate account."))
             return render(request, 'account/signup.html')           
             # return redirect('account:signup')
