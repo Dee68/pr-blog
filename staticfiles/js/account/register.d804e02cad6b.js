@@ -27,7 +27,6 @@ usernameField.addEventListener('keyup', (e) => {
     usernameField.classList.remove("is-invalid");
     feedbackArea.style.display = 'none';
     usernameSuccess.textContent = `Checking ${usernameVal}`;
-    usernameSuccess.style.display = 'block';
     if (usernameVal.length > 0) {
         fetch('/account/validate-username', {
             body: JSON.stringify({ 'username': usernameVal }),
@@ -52,31 +51,31 @@ usernameField.addEventListener('keyup', (e) => {
 
 
 
-emailField.addEventListener('keyup', (e) => {
-    const emailVal = e.target.value;
+// emailField.addEventListener('keyup', (e) => {
+//     const emailVal = e.target.value;
 
-    emailField.classList.remove("is-invalid");
-    emailFeedback.style.display = 'none';
-    emailSuccess.textContent = `Checking ${emailVal}`;
-    emailSuccess.style.display = 'block';
-    if (emailVal.length > 0) {
-        fetch("/account/validate-email", {
-            body: JSON.stringify({ "email": emailVal }),
-            method: "POST",
-        }).then(res => res.json()).then((data) => {
-            console.log("data", data);
-            emailSuccess.style.display = 'none';
-            if (data.email_error) {
-                signup.disabled = true;
-                emailField.classList.add("is-invalid");
-                emailFeedback.style.display = 'block';
-                emailFeedback.innerHTML = `<p class="danger">${data.email_error}</p>`;
-            } else {
-                signup.disabled = false;
-            }
-        });
-    }
-});
+//     emailField.classList.remove("is-invalid");
+//     emailFeedback.style.display = 'none';
+//     emailSuccess.textContent = `Checking ${emailVal}`;
+//     emailSuccess.style.display = 'block';
+//     if (emailVal.length > 0) {
+//         fetch("/account/validate-email", {
+//             body: JSON.stringify({ "email": emailVal }),
+//             method: "POST",
+//         }).then(res => res.json()).then((data) => {
+//             console.log("data", data);
+//             emailSuccess.style.display = 'none';
+//             if (data.email_error) {
+//                 signup.disabled = true;
+//                 emailField.classList.add("is-invalid");
+//                 emailFeedback.style.display = 'block';
+//                 emailFeedback.innerHTML = `<p>${data.email_error}</p>`;
+//             } else {
+//                 signup.disabled = false;
+//             }
+//         });
+//     }
+// });
 
 
 
