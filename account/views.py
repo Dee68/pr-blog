@@ -80,7 +80,7 @@ def signup(request):
             # - encode uid
             uid64 = urlsafe_base64_encode(force_bytes(user.pk))
             # -get domain we are in
-            # domain = get_current_site(request).domain
+            domain = get_current_site(request).domain
             # -get relative url
             link = reverse('account:activate', kwargs={'uid64': uid64,'token': token_generator.make_token(user)})
             activate_link = 'http://'+domain+link
