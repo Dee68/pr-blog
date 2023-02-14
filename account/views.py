@@ -78,13 +78,13 @@ def signup(request):
             # -get token
             # token = token_generator.make_token(user)
             # - encode uid
-            # uid64 = urlsafe_base64_encode(force_bytes(user.pk))
+            uid64 = urlsafe_base64_encode(force_bytes(user.pk))
             # -get domain we are in
             # domain = get_current_site(request).domain
             # -get relative url
-            # link = reverse('account:activate', kwargs={'uid64': uid64,'token': token_generator.make_token(user)})
-            # activate_link = 'http://'+domain+link
-            email_body = 'Hello '+user.username+', please use the link below to verify your account\n'#+activate_link
+            link = reverse('account:activate', kwargs={'uid64': uid64,'token': token_generator.make_token(user)})
+            activate_link = 'http://'+domain+link
+            email_body = 'Hello '+user.username+', please use the link below to verify your account\n'+activate_link
             email = EmailMessage(email_subject, email_body, 'noreply@mrdee.com', [user_email] )
             email.send(fail_silently=False)
             messages.success(request, mark_safe("Account created successfully.<br>Check your mail to activate account."))
